@@ -54,6 +54,6 @@ TestResult.xml
 nunit-*.xml
 
 TodoApp.Api/todo.db
-
+/todo.db
 
 .vs
