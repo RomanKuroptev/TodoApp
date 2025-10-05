@@ -81,7 +81,5 @@ namespace TodoApp.Api.Tests
             Assert.That(todoFromDb.DueDate, Is.Not.Null);
             Assert.That(todoFromDb.DueDate.Value.Date, Is.EqualTo(newTodo.DueDate.Value.Date));
         }
-        
-        
     }
 }
