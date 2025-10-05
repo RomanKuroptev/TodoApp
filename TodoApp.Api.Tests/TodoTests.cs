@@ -17,7 +17,7 @@ namespace TodoApp.Api.Tests
             
             // Assert
             Assert.That(response, Is.Not.Null);
-            Assert.That(response.Count, Is.EqualTo(2)); // Two non-completed todos in test data
+            Assert.That(response.Count, Is.EqualTo(0));
         }
         
         [Test]

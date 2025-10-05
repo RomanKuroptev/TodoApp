@@ -25,21 +25,11 @@ public class Program
 
         var app = builder.Build();
 
-        // Setup database and seed data
+        // Setup database
         using (var scope = app.Services.CreateScope())
         {
             var db = scope.ServiceProvider.GetRequiredService<TodoDbContext>();
             await db.Database.MigrateAsync();
-
-            if (!await db.Todos.AnyAsync())
-            {
-                db.Todos.AddRange(
-                    new Todo { Title = "Prepare slides", IsDone = false, DueDate = DateTime.UtcNow.AddDays(7) },
-                    new Todo { Title = "Book venue", IsDone = false, DueDate = DateTime.UtcNow.AddDays(14) }
-                );
-
-                await db.SaveChangesAsync();
-            }
         }
 
         // Enable Swagger for all environments in this demo

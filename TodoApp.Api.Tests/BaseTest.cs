@@ -44,6 +44,14 @@ namespace TodoApp.Api.Tests
             // This method runs before each test
         }
 
+        [TearDown]
+        public virtual void TearDown()
+        {
+            // Clear the database after each test to ensure test isolation
+            DbContext.Todos.RemoveRange(DbContext.Todos);
+            DbContext.SaveChanges();
+        }
+
         [OneTimeTearDown]
         public virtual void OneTimeTearDown()
         {
